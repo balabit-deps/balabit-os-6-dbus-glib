@@ -1,0 +1,93 @@
+Source: dbus-glib
+Section: devel
+Priority: optional
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Uploaders: Sjoerd Simons <sjoerd@debian.org>,
+           Sebastian Dröge <slomo@debian.org>,
+           Simon McVittie <smcv@debian.org>,
+           Michael Biebl <biebl@debian.org>
+Build-Depends: debhelper (>= 9),
+               dh-autoreconf,
+               dpkg-dev (>= 1.16.1),
+               libglib2.0-dev (>= 2.26),
+               libdbus-1-dev (>= 1.1),
+               libexpat-dev,
+               gtk-doc-tools (>= 1.4)
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-utopia/dbus-glib.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-utopia/dbus-glib.git
+Homepage: http://www.freedesktop.org/wiki/Software/DBusBindings
+
+Package: libdbus-glib-1-dev
+Section: oldlibs
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libdbus-glib-1-2 (= ${binary:Version}),
+         libdbus-1-dev (>= 1.1),
+         libglib2.0-dev,
+         ${shlibs:Depends},
+         ${misc:Depends}
+Conflicts: libdbus-glib-dev, dbus-glib-1-dev, dbus-1-utils (<< 0.50-2)
+Replaces: libdbus-glib0-dev, dbus-glib-1-dev, libdbus-1-dev (<< 0.90)
+Description: simple interprocess messaging system (GLib interface)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ This package provides development files for a deprecated GLib-based
+ D-Bus library. New code should use GDBus, part of GLib, instead.
+ .
+ See the dbus description for more information about D-Bus in general.
+
+Package: libdbus-glib-1-2
+Section: oldlibs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: simple interprocess messaging system (GLib-based shared library)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ This package provides a deprecated GLib-based shared library for
+ applications using the GLib interface to D-Bus. New code should use
+ GDBus, part of GLib, instead.
+ .
+ See the dbus description for more information about D-Bus in general.
+
+Package: libdbus-glib-1-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: lynx | www-browser,
+         ${misc:Depends}
+Suggests: devhelp
+Description: simple interprocess messaging system (GLib library documentation)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ This package provides the HTML documentation for dbus-glib
+ .
+ See the dbus description for more information about D-Bus in general.
+
+Package: libdbus-glib-1-2-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libdbus-glib-1-2 (= ${binary:Version}),
+         ${misc:Depends}
+Description: simple interprocess messaging system (GLib library debug symbols)
+ D-Bus is a message bus, used for sending messages between applications.
+ Conceptually, it fits somewhere in between raw sockets and CORBA in
+ terms of complexity.
+ .
+ This package provides support for debugging programs that use the
+ deprecated GLib-based shared library.
+ .
+ See the dbus description for more information about D-Bus in general.
